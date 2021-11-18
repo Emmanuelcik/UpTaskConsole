@@ -2,7 +2,9 @@ require("colors");
 const { 
     inquirerMenu, 
     pausa,
-    leerInput,    
+    leerInput,
+    listadoBorrar,
+    confirmar,    
 } = require("./helpers/inquirer");
 
 const { saveData, readData } = require("./helpers/saveFile");
@@ -42,6 +44,15 @@ const main = async () =>{
             case "5":
                 break;
             case "6":
+                const id = await listadoBorrar(tareas.listadoArr);
+                if(id !== "0"){
+                    const ok = await confirmar("¿Estas seguro?");
+                    if( ok ){
+                        tareas.borrarTarea(id);
+                        console.log("Tarea Borrada Correctamente".green);
+                    }
+                }
+
                 break;
         }
         saveData( tareas.listadoArr );
