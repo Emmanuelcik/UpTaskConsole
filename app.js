@@ -34,8 +34,10 @@ const main = async () =>{
                 break;
 
             case "3":
+                tareas.listarPendingCompleted();
                 break;
             case "4":
+                tareas.listarPendingCompleted(false);
                 break;
             case "5":
                 break;
