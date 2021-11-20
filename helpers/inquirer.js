@@ -127,7 +127,7 @@ async function checkList (tareas = []){
         return{
             value: tarea.id,
             name: `${idx} ${ tarea.desc}`,
-            checked: true,
+            checked: (tarea.completada) ? true : false,
         };
 
     });
